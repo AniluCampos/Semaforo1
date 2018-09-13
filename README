@@ -11,8 +11,10 @@ El prototipo requirió del siguiente material:
 1 Led amarillo
 1 Push button
 1 Potenciometro
+1 Buzzer
 5 Resistencias de 330 ohms
 1 Resistencia de 1k ohms
+1 Resistencia de 100 ohms
 1 Arduino UNO
 
 Programa:
@@ -38,5 +40,7 @@ Sí el tiempo mínimo aún no transcurre hacemos una resta que entra a un delay 
 esperar el tiempo faltante.
 
 Al terminar el tiempo los leds comienzan su ciclo de cambio.
+Al encender el led verde peatonar la bocina comienza a sonar y al estar por terminar
+comienza a parpadear junto al led.
 
 

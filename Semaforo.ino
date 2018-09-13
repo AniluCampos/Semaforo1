@@ -14,6 +14,7 @@ const int led_4 = 5; //Led Verde Peaton
 const int led_5 = 6; //Led Rojo Peaton
 const int boton_1 = 0; //Botón
 const int pot = A0;//Potenciometro
+const int buzzer = 9;//Bocina
 
 int tiempoVerde=0;
 int tiempo2=0;
@@ -60,8 +61,9 @@ void loop(){
   digitalWrite(led_3, HIGH);//Prende el led rojo de los autos
   digitalWrite(led_4, HIGH);//Prende el led verde de los peatones
   digitalWrite(led_5, LOW);//Se apaga el led rojo de los peatones
+  tone(buzzer,440);//Inicia a sonar la bocina
   delay(10000);
-  parpadeo(led_4);//Parpadea el led verde peatonal
+  parpadeo2(led_4,buzzer);//Parpadea el led verde peatonal y el sonido
   digitalWrite(led_3, LOW);//Se apaga el led rojo de los autos
   digitalWrite(led_4, LOW);//Se apaga el led verde peatonal
   tiempo2=millis();//Guardamos el tiempo transcurrido en una variable
@@ -73,6 +75,18 @@ void loop(){
       digitalWrite(pin,HIGH);
       delay(400);
       digitalWrite(pin,LOW);
+      delay(400);
+    }
+  }
+
+  void parpadeo2(int pin, int pin2){//Ciclo que incluye una intermitencia en el sonido y el led
+
+    for(int i=0; i<4; i++){ //Ciclo que se repite 4 veces
+      digitalWrite(pin,HIGH);
+      tone(pin2,440);
+      delay(400);
+      digitalWrite(pin,LOW);
+      noTone(pin2);
       delay(400);
     }
   }
