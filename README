@@ -20,4 +20,23 @@ El programa declara en orden los 5 leds conectados a entradas digitales,
 un botón conectado a entrada digital y un potenciometro conectado a entrada
 analógica.
 
-Comienza un ciclo en el que los leds van encendiendo a manera de semaforo.
+Se declaran 4 variables de tipo entero.
+
+Guardamos en una variable (valorPot) el valor del potenciometro y hacemos un mapeo
+para ajustar los tiempos guardando en una nueva variable(nDelay).
+
+Comenzamos un ciclo en el que mientras el botón no esté presionado el semáforo 
+de los autos está en verde y el de los peatones en rojo.
+Registramos el tiempo que lleva encendido el led verde y lo guardamos en la variable
+tiempoVerde.
+La imprimimos para comprobar el tiempo.
+
+Al ser presionado el botón imprimimos el tiempo que duró el verde de los autos y el
+tiempo que establece el potenciometro debe durar mínimo.
+
+Sí el tiempo mínimo aún no transcurre hacemos una resta que entra a un delay para
+esperar el tiempo faltante.
+
+Al terminar el tiempo los leds comienzan su ciclo de cambio.
+
+

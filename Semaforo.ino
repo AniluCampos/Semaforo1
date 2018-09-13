@@ -15,6 +15,8 @@ const int led_5 = 6; //Led Rojo Peaton
 const int boton_1 = 0; //Botón
 const int pot = A0;//Potenciometro
 
+int tiempoVerde=0;
+int tiempo2=0;
 int valorPot=0;
 int nDelay=0;
 
@@ -30,10 +32,25 @@ void setup(){
 }
 void loop(){
   
-
-  digitalWrite(led_1,HIGH);//El led verde del carro enciende
-  digitalWrite(led_5,HIGH);//El led rojo peatonal enciende
- 
+  valorPot=analogRead(pot);//Leemos el valor del potenciometro y lo asignamos a la variable
+  nDelay=map(valorPot, 0, 655, 10, 30)*1000;//Mapeamos el valor del potenciometro
+  
+  if(digitalRead(boton_1)==HIGH)
+  {
+    digitalWrite(led_1,HIGH);//El led verde del carro enciende
+    digitalWrite(led_5,HIGH);//El led rojo peatonal enciende
+    tiempoVerde=millis()-tiempo2; //Asignamos a la variable tiempoVerde el tiempo que el led verde lleva encendido
+    Serial.println(tiempoVerde);//Imprimimos el tiempoVerde
+  }
+  else //Al ser presionado el botón comienza esta parte del ciclo
+  {
+  Serial.println(tiempoVerde);
+  Serial.println(nDelay);
+  
+  if(tiempoVerde<nDelay){
+  Serial.println(nDelay-tiempoVerde);
+  delay(nDelay-tiempoVerde);
+  }//Si el semaforo de los autos no ha cumplido el tiempo rquerido mínimo establecido por el potenciometro lo cumple
   parpadeo(led_1);//El led_1 va al método parpadeo
   
   digitalWrite(led_2, HIGH);//Prende el led amarillo
@@ -47,7 +64,7 @@ void loop(){
   parpadeo(led_4);//Parpadea el led verde peatonal
   digitalWrite(led_3, LOW);//Se apaga el led rojo de los autos
   digitalWrite(led_4, LOW);//Se apaga el led verde peatonal
-  
+  tiempo2=millis();//Guardamos el tiempo transcurrido en una variable
   }
 }
   void parpadeo(int pin){
