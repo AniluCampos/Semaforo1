@@ -1,0 +1,23 @@
+Instituto Tecnológico de León
+Ingeniería en Sistemas Computacionales
+Sistemas Programables
+Práctina #1
+Ana Luisa Campos Magallanes
+
+Prototipo:
+El prototipo requirió del siguiente material:
+2 Leds verdes
+2 Leds rojos
+1 Led amarillo
+1 Push button
+1 Potenciometro
+5 Resistencias de 330 ohms
+1 Resistencia de 1k ohms
+1 Arduino UNO
+
+Programa:
+El programa declara en orden los 5 leds conectados a entradas digitales,
+un botón conectado a entrada digital y un potenciometro conectado a entrada
+analógica.
+
+Comienza un ciclo en el que los leds van encendiendo a manera de semaforo.
